@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mi'ad Scent — Wear Confidence, Wear Mi'ad</title>
+<meta name="description" content="Mi'ad Scent — luxurious, long-lasting unisex fragrances made in Maiduguri, Borno State. Roseline, Velvet, Afiya, Desire &amp; Kabbasa Spray. Order directly on WhatsApp." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #faf5f0;
+    --blush: #f3e3dc;
+    --blush-deep: #e5c9be;
+    --rose: #c9a196;
+    --maroon: #6d2932;
+    --maroon-dark: #521f26;
+    --ink: #241d1b;
+    --gold: #b98a4e;
+    --white: #fffdfb;
+    --whatsapp: #1fa855;
+    --shadow: 0 18px 45px rgba(82, 31, 38, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+  .script { font-family: 'Allura', cursive; font-weight: 400; }
+
+  img { max-width: 100%; display: block; }
+
+  .container { width: min(1120px, 92%); margin: 0 auto; }
+
+  section { padding: 90px 0; }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--maroon-dark);
+    margin-bottom: 16px;
+  }
+
+  .section-sub { max-width: 560px; color: #6f625d; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 245, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(109, 41, 50, 0.08);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .logo .script { color: var(--maroon); font-size: 2rem; }
+
+  .nav-links { display: flex; gap: 34px; align-items: center; list-style: none; }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--maroon); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-maroon { background: var(--maroon); color: var(--white); box-shadow: 0 10px 25px rgba(109, 41, 50, 0.3); }
+  .btn-maroon:hover { background: var(--maroon-dark); }
+
+  .btn-whatsapp { background: var(--whatsapp); color: #fff; box-shadow: 0 10px 25px rgba(31, 168, 85, 0.3); }
+  .btn-whatsapp:hover { background: #179147; }
+
+  .btn-outline { background: transparent; color: var(--maroon); border: 1.5px solid var(--maroon); }
+  .btn-outline:hover { background: var(--maroon); color: var(--white); }
+
+  .btn-sm { padding: 11px 22px; font-size: 0.75rem; }
+
+  .nav .btn { padding: 11px 22px; font-size: 0.75rem; }
+
+  .wa-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 70px 0 100px;
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(229, 201, 190, 0.55), transparent 55%),
+      radial-gradient(ellipse at 85% 80%, rgba(201, 161, 150, 0.35), transparent 55%),
+      linear-gradient(160deg, #fdfaf7 0%, var(--blush) 100%);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-brand {
+    font-size: clamp(3.4rem, 8vw, 5.6rem);
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  .hero-brand .script { color: var(--maroon); }
+
+  .hero-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    color: var(--maroon-dark);
+    margin: 18px 0 20px;
+  }
+
+  .hero p.lead { max-width: 480px; color: #6f625d; margin-bottom: 36px; }
+
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .hero-img-wrap { position: relative; }
+
+  .hero-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -22px;
+    border: 1px solid rgba(185, 138, 78, 0.45);
+    border-radius: 240px 240px 24px 24px;
+    transform: rotate(2deg);
+  }
+
+  .hero-img {
+    border-radius: 230px 230px 18px 18px;
+    box-shadow: var(--shadow);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  /* ---------- Feature strip ---------- */
+  .features { padding: 0; transform: translateY(-50px); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--white);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .feature {
+    padding: 30px 24px;
+    text-align: center;
+    border-right: 1px solid rgba(109, 41, 50, 0.08);
+  }
+
+  .feature:last-child { border-right: none; }
+
+  .feature .f-icon { font-size: 1.6rem; margin-bottom: 8px; }
+
+  .feature h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: var(--maroon-dark);
+  }
+
+  .feature p { font-size: 0.82rem; color: #8a7c76; margin-top: 4px; }
+
+  /* ---------- Products ---------- */
+  #scents { padding-top: 40px; }
+
+  .products-head { text-align: center; margin-bottom: 60px; }
+  .products-head .section-sub { margin: 0 auto; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(82, 31, 38, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+
+  .card-img-wrap { position: relative; overflow: hidden; }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  .card:hover .card-img { transform: scale(1.05); }
+
+  .card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(109, 41, 50, 0.9);
+    color: var(--white);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .card-body { padding: 26px 24px 28px; display: flex; flex-direction: column; flex: 1; }
+
+  .card-body h3 {
+    font-size: 1.5rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--maroon-dark);
+  }
+
+  .card-mood {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .card-body p.desc { font-size: 0.9rem; color: #6f625d; flex: 1; margin-bottom: 20px; }
+
+  /* ---------- Why ---------- */
+  .why { background: linear-gradient(160deg, var(--blush) 0%, #fdfaf7 100%); }
+
+  .why-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+
+  .why-img {
+    border-radius: 18px 220px 18px 18px;
+    box-shadow: var(--shadow);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .why-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 34px; }
+
+  .why-item {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 8px 22px rgba(82, 31, 38, 0.07);
+  }
+
+  .why-item .f-icon { font-size: 1.4rem; margin-bottom: 6px; display: block; }
+
+  .why-item h3 { font-family: 'Jost', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 600; color: var(--maroon-dark); margin-bottom: 4px; }
+
+  .why-item p { font-size: 0.84rem; color: #8a7c76; }
+
+  /* ---------- Quote band ---------- */
+  .quote-band {
+    background: var(--ink);
+    color: var(--cream);
+    text-align: center;
+    padding: 70px 0;
+  }
+
+  .quote-band h2 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .quote-band .script { color: var(--rose); font-size: clamp(2.6rem, 6vw, 4rem); display: block; margin-top: 6px; text-transform: none; letter-spacing: normal; }
+
+  .quote-band p { max-width: 620px; margin: 22px auto 0; color: #cbbcb5; }
+
+  /* ---------- Order ---------- */
+  .order { background: var(--cream); }
+
+  .order-inner {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .order-info { position: sticky; top: 110px; }
+
+  .order-info .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 26px;
+    font-size: 0.95rem;
+    color: #6f625d;
+  }
+
+  .order-info .contact-line strong { color: var(--maroon-dark); font-weight: 600; }
+
+  .order-panel {
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 40px 36px;
+  }
+
+  .order-panel h3 {
+    font-size: 1.6rem;
+    color: var(--maroon-dark);
+    margin-bottom: 6px;
+  }
+
+  .order-panel > p { font-size: 0.88rem; color: #8a7c76; margin-bottom: 26px; }
+
+  .order-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(109, 41, 50, 0.09);
+  }
+
+  .order-row-label { display: flex; align-items: center; gap: 14px; }
+
+  .order-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .order-row-label h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); font-weight: 600; }
+
+  .order-row-label span { font-size: 0.78rem; color: #a2938c; }
+
+  .qty {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--blush);
+    border-radius: 999px;
+    padding: 4px;
+  }
+
+  .qty button {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: var(--white);
+    color: var(--maroon);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .qty button:hover { background: var(--maroon); color: var(--white); }
+
+  .qty output {
+    min-width: 34px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .order-fields { margin-top: 26px; display: grid; gap: 16px; }
+
+  .order-fields label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500; color: var(--maroon-dark); display: block; margin-bottom: 6px; }
+
+  .order-fields input, .order-fields textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid rgba(109, 41, 50, 0.15);
+    border-radius: 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.25s;
+    resize: vertical;
+  }
+
+  .order-fields input:focus, .order-fields textarea:focus { border-color: var(--maroon); }
+
+  .order-submit { margin-top: 28px; width: 100%; justify-content: center; padding: 17px; font-size: 0.88rem; }
+
+  .order-note { text-align: center; font-size: 0.78rem; color: #a2938c; margin-top: 14px; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--maroon-dark);
+    color: var(--blush);
+    padding: 60px 0 30px;
+    text-align: center;
+  }
+
+  footer .logo { color: var(--cream); font-size: 2rem; }
+  footer .logo .script { color: var(--rose); font-size: 2.4rem; }
+
+  footer .tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; margin: 10px 0 24px; color: var(--blush-deep); }
+
+  .footer-contact { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 0.9rem; margin-bottom: 30px; }
+
+  .footer-contact a { color: var(--cream); text-decoration: none; }
+  .footer-contact a:hover { text-decoration: underline; }
+
+  footer .copy { font-size: 0.75rem; color: rgba(243, 227, 220, 0.5); border-top: 1px solid rgba(243, 227, 220, 0.15); padding-top: 22px; }
+
+  /* ---------- Floating WhatsApp ---------- */
+  .wa-float {
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    z-index: 200;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(31, 168, 85, 0.45);
+    transition: transform 0.25s;
+  }
+
+  .wa-float:hover { transform: scale(1.1); }
+
+  .wa-float svg { width: 30px; height: 30px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-inner, .why-inner, .order-inner { grid-template-columns: 1fr; }
+    .hero-img-wrap { max-width: 420px; margin: 0 auto; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .feature:nth-child(2) { border-right: none; }
+    .feature:nth-child(-n+2) { border-bottom: 1px solid rgba(109, 41, 50, 0.08); }
+    .nav-links li:not(:last-child) { display: none; }
+    .why-img { border-radius: 18px; max-width: 420px; margin: 0 auto; }
+    .order-info { position: static; }
+    section { padding: 64px 0; }
+  }
+
+  @media (max-width: 520px) {
+    .why-list { grid-template-columns: 1fr; }
+    .order-panel { padding: 30px 22px; }
+    .features { transform: translateY(-34px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top">Mi'ad <span class="script">Scent</span></a>
+    <ul class="nav-links">
+      <li><a href="#scents">Our Scents</a></li>
+      <li><a href="#why">Why Mi'ad</a></li>
+      <li><a href="#order">Order</a></li>
+      <li>
+        <a class="btn btn-whatsapp" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order Now
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div>
+      <p class="eyebrow">Luxury Fragrance · Maiduguri, Borno State</p>
+      <h1 class="hero-brand">Mi'ad <span class="script">Scent</span></h1>
+      <p class="hero-tag">Wear confidence, wear mi'ad.</p>
+      <p class="lead">Mi'ad Scent is more than just a fragrance — it's a statement. Highly concentrated, long-lasting, unisex scents crafted with premium ingredients. Made for everyone. Loved everywhere.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-whatsapp" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order on WhatsApp
+        </a>
+        <a class="btn btn-outline" href="#scents">Explore Scents</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img class="hero-img" src="assets/roseline.jpeg" alt="Mi'ad Scent Roseline perfume oil with elegant packaging" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== Feature strip ===== -->
+<div class="features">
+  <div class="container features-grid">
+    <div class="feature"><div class="f-icon">🕰️</div><h3>Long Lasting</h3><p>Highly concentrated oils</p></div>
+    <div class="feature"><div class="f-icon">🤝</div><h3>Unisex</h3><p>Made for everyone</p></div>
+    <div class="feature"><div class="f-icon">🏅</div><h3>Premium Quality</h3><p>Finest ingredients</p></div>
+    <div class="feature"><div class="f-icon">🎁</div><h3>Any Occasion</h3><p>Perfect for gifting</p></div>
+  </div>
+</div>
+
+<!-- ===== Products ===== -->
+<section id="scents">
+  <div class="container">
+    <div class="products-head">
+      <p class="eyebrow">The Collection</p>
+      <h2 class="section-title">One Scent. Many Emotions. <em>You Choose.</em></h2>
+      <p class="section-sub">Fragrance is personal. That's why we create scents that fit your mood, your personality and your everyday life.</p>
+    </div>
+
+    <div class="products-grid">
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-badge">30ml</span>
+          <img class="card-img" src="assets/roseline.jpeg" alt="Roseline perfume oil by Mi'ad Scent" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Roseline</h3>
+          <p class="card-mood">Soft · Elegant · Romantic</p>
+          <p class="desc">A soft, elegant and romantic scent that leaves a lasting impression. Perfect for those who love subtle sweetness and class.</p>
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20order%20Roseline%20(30ml)." target="_blank" rel="noopener">Order Roseline</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-badge">30ml</span>
+          <img class="card-img" src="assets/velvet.jpeg" alt="Velvet perfume oil by Mi'ad Scent" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Velvet</h3>
+          <p class="card-mood">Smooth · Rich · Warm</p>
+          <p class="desc">Smooth, rich and warm. Velvet is made for bold souls who love to stand out.</p>
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20order%20Velvet%20(30ml)." target="_blank" rel="noopener">Order Velvet</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-badge">10ml</span>
+          <img class="card-img" src="assets/afiya.jpeg" alt="Afiya perfume oil by Mi'ad Scent" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Afiya</h3>
+          <p class="card-mood">Fresh · Clean · Uplifting</p>
+          <p class="desc">Fresh, clean and uplifting. Afiya brings peace, positivity and a touch of everyday luxury.</p>
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20order%20Afiya%20(10ml)." target="_blank" rel="noopener">Order Afiya</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-badge">Perfume Oil</span>
+          <img class="card-img" src="assets/desire.jpeg" alt="Desire perfume oil by Mi'ad Scent" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Desire</h3>
+          <p class="card-mood">Deep · Mysterious · Addictive</p>
+          <p class="desc">Deep, mysterious and addictive. Desire is for those who want to leave a mark wherever they go.</p>
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20order%20Desire." target="_blank" rel="noopener">Order Desire</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-badge">Body Spray</span>
+          <img class="card-img" src="assets/kabbasa.jpeg" alt="Kabbasa Spray by Mi'ad Scent" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Kabbasa Spray</h3>
+          <p class="card-mood">Bold · Refreshing · Everyday</p>
+          <p class="desc">Our signature fragrance mist. Kabbasa keeps you fresh, bold and confident all day — wherever the day takes you.</p>
+          <a class="btn btn-whatsapp btn-sm" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20order%20Kabbasa%20Spray." target="_blank" rel="noopener">Order Kabbasa</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why ===== -->
+<section class="why" id="why">
+  <div class="container why-inner">
+    <img class="why-img" src="assets/velvet.jpeg" alt="Mi'ad Scent Velvet perfume oil beautifully displayed on marble" loading="lazy" />
+    <div>
+      <p class="eyebrow">The Mi'ad Difference</p>
+      <h2 class="section-title">Why Choose Mi'ad Scent?</h2>
+      <p class="section-sub">At Mi'ad Scent, we believe fragrance is personal. Every bottle is crafted to make you feel confident, remembered and celebrated.</p>
+      <div class="why-list">
+        <div class="why-item"><span class="f-icon">✔️</span><h3>Highly Concentrated</h3><p>Formulated for longevity, so your scent stays with you all day.</p></div>
+        <div class="why-item"><span class="f-icon">🌿</span><h3>Skin Friendly &amp; Safe</h3><p>Gentle, premium-quality ingredients you can trust on your skin.</p></div>
+        <div class="why-item"><span class="f-icon">💗</span><h3>Luxurious &amp; Affordable</h3><p>Luxury scents at prices that love you back.</p></div>
+        <div class="why-item"><span class="f-icon">⭐</span><h3>Beautifully Packaged</h3><p>Elegant bottles and boxes — perfect for gifting.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Quote band ===== -->
+<section class="quote-band">
+  <div class="container">
+    <h2>Choose your signature scent today <span class="script">and experience the Mi'ad difference</span></h2>
+    <p>One scent. Many emotions. You choose. Order today and let your fragrance speak before you do.</p>
+  </div>
+</section>
+
+<!-- ===== Order ===== -->
+<section class="order" id="order">
+  <div class="container order-inner">
+    <div class="order-info">
+      <p class="eyebrow">Quick &amp; Easy</p>
+      <h2 class="section-title">Place Your Order</h2>
+      <p class="section-sub">Select your scents, tell us where to deliver, and we'll continue the conversation on WhatsApp. It only takes a minute.</p>
+      <p class="contact-line">📍 <span><strong>Location:</strong> Maiduguri, Borno State</span></p>
+      <p class="contact-line">📞 <span><strong>WhatsApp:</strong> <a href="https://wa.me/2349025255787" target="_blank" rel="noopener" style="color:inherit">0902 525 5787</a></span></p>
+      <p class="contact-line">🚚 <span><strong>Delivery:</strong> Nationwide across Nigeria</span></p>
+    </div>
+
+    <div class="order-panel">
+      <h3>Build Your Order</h3>
+      <p>Choose quantities for the scents you want.</p>
+
+      <div id="order-items">
+        <div class="order-row" data-name="Roseline (30ml)">
+          <div class="order-row-label">
+            <img class="order-thumb" src="assets/roseline.jpeg" alt="" />
+            <div><h4>Roseline</h4><span>30ml · Perfume Oil</span></div>
+          </div>
+          <div class="qty">
+            <button type="button" class="qty-minus" aria-label="Decrease Roseline quantity">−</button>
+            <output>0</output>
+            <button type="button" class="qty-plus" aria-label="Increase Roseline quantity">+</button>
+          </div>
+        </div>
+
+        <div class="order-row" data-name="Velvet (30ml)">
+          <div class="order-row-label">
+            <img class="order-thumb" src="assets/velvet.jpeg" alt="" />
+            <div><h4>Velvet</h4><span>30ml · Perfume Oil</span></div>
+          </div>
+          <div class="qty">
+            <button type="button" class="qty-minus" aria-label="Decrease Velvet quantity">−</button>
+            <output>0</output>
+            <button type="button" class="qty-plus" aria-label="Increase Velvet quantity">+</button>
+          </div>
+        </div>
+
+        <div class="order-row" data-name="Afiya (10ml)">
+          <div class="order-row-label">
+            <img class="order-thumb" src="assets/afiya.jpeg" alt="" />
+            <div><h4>Afiya</h4><span>10ml · Perfume Oil</span></div>
+          </div>
+          <div class="qty">
+            <button type="button" class="qty-minus" aria-label="Decrease Afiya quantity">−</button>
+            <output>0</output>
+            <button type="button" class="qty-plus" aria-label="Increase Afiya quantity">+</button>
+          </div>
+        </div>
+
+        <div class="order-row" data-name="Desire">
+          <div class="order-row-label">
+            <img class="order-thumb" src="assets/desire.jpeg" alt="" />
+            <div><h4>Desire</h4><span>Perfume Oil</span></div>
+          </div>
+          <div class="qty">
+            <button type="button" class="qty-minus" aria-label="Decrease Desire quantity">−</button>
+            <output>0</output>
+            <button type="button" class="qty-plus" aria-label="Increase Desire quantity">+</button>
+          </div>
+        </div>
+
+        <div class="order-row" data-name="Kabbasa Spray">
+          <div class="order-row-label">
+            <img class="order-thumb" src="assets/kabbasa.jpeg" alt="" />
+            <div><h4>Kabbasa</h4><span>Body Spray</span></div>
+          </div>
+          <div class="qty">
+            <button type="button" class="qty-minus" aria-label="Decrease Kabbasa quantity">−</button>
+            <output>0</output>
+            <button type="button" class="qty-plus" aria-label="Increase Kabbasa quantity">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-fields">
+        <div>
+          <label for="cust-name">Your Name</label>
+          <input id="cust-name" type="text" placeholder="e.g. Amina Yusuf" autocomplete="name" />
+        </div>
+        <div>
+          <label for="cust-location">Delivery Location</label>
+          <input id="cust-location" type="text" placeholder="e.g. Maiduguri, Borno State" autocomplete="address-level2" />
+        </div>
+        <div>
+          <label for="cust-note">Note (optional)</label>
+          <textarea id="cust-note" rows="2" placeholder="Anything else we should know?"></textarea>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-whatsapp order-submit" id="send-order">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send Order on WhatsApp
+      </button>
+      <p class="order-note">You'll be redirected to WhatsApp (0902 525 5787) to confirm your order.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <p class="logo">Mi'ad <span class="script">Scent</span></p>
+    <p class="tagline">Wear confidence, wear mi'ad.</p>
+    <div class="footer-contact">
+      <span>📍 Maiduguri, Borno State</span>
+      <a href="https://wa.me/2349025255787" target="_blank" rel="noopener">📞 0902 525 5787</a>
+    </div>
+    <p class="copy">© <span id="year"></span> Mi'ad Scent. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== Floating WhatsApp button ===== -->
+<a class="wa-float" href="https://wa.me/2349025255787?text=Hello%20Mi%27ad%20Scent!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener" aria-label="Chat with Mi'ad Scent on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  var WHATSAPP_NUMBER = '2349025255787';
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Quantity steppers
+  document.querySelectorAll('.order-row').forEach(function (row) {
+    var output = row.querySelector('output');
+    row.querySelector('.qty-plus').addEventListener('click', function () {
+      output.textContent = Math.min(99, parseInt(output.textContent, 10) + 1);
+    });
+    row.querySelector('.qty-minus').addEventListener('click', function () {
+      output.textContent = Math.max(0, parseInt(output.textContent, 10) - 1);
+    });
+  });
+
+  // Compose the WhatsApp order message and redirect
+  document.getElementById('send-order').addEventListener('click', function () {
+    var items = [];
+    document.querySelectorAll('.order-row').forEach(function (row) {
+      var qty = parseInt(row.querySelector('output').textContent, 10);
+      if (qty > 0) {
+        items.push('- ' + row.dataset.name + ' x' + qty);
+      }
+    });
+
+    if (items.length === 0) {
+      alert('Please select at least one scent by tapping the + button.');
+      return;
+    }
+
+    var name = document.getElementById('cust-name').value.trim();
+    var location = document.getElementById('cust-location').value.trim();
+    var note = document.getElementById('cust-note').value.trim();
+
+    var lines = ["Hello Mi'ad Scent! \u{1F338} I'd like to place an order:", ''];
+    lines = lines.concat(items);
+    lines.push('');
+    if (name) lines.push('Name: ' + name);
+    if (location) lines.push('Delivery location: ' + location);
+    if (note) lines.push('Note: ' + note);
+    lines.push('');
+    lines.push('Please confirm availability and total price. Thank you!');
+
+    var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
