@@ -17,7 +17,7 @@
    ============================================================ */
 
 var FIREBASE_CONFIG = {
-  apiKey: "AIzaSyCNzAoWWtAUiv2pRqsL6wt4H78JtGrt4L4",
+  apiKey: "AIzaSyCNzAoWWtAUiv2pRqsl6wt4H78JtGrt4L4",
   authDomain: "miad-scent.firebaseapp.com",
   projectId: "miad-scent",
   storageBucket: "miad-scent.firebasestorage.app",
