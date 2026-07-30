@@ -17,12 +17,13 @@
    ============================================================ */
 
 var FIREBASE_CONFIG = {
-  apiKey: "PASTE_API_KEY",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT_ID.appspot.com",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID"
+  apiKey: "AIzaSyCNzAoWWtAUiv2pRqsL6wt4H78JtGrt4L4",
+  authDomain: "miad-scent.firebaseapp.com",
+  projectId: "miad-scent",
+  storageBucket: "miad-scent.firebasestorage.app",
+  messagingSenderId: "208328041853",
+  appId: "1:208328041853:web:8e07d4c114da02f7205814",
+  measurementId: "G-YD49KFY4EK"
 };
 
 /* Returns true only when every value has been replaced. */
