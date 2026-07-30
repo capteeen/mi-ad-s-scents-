@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — Mi'ad Scent</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #faf5f0;
+    --blush: #f3e3dc;
+    --blush-deep: #e5c9be;
+    --rose: #c9a196;
+    --maroon: #6d2932;
+    --maroon-dark: #521f26;
+    --ink: #241d1b;
+    --gold: #b98a4e;
+    --white: #fffdfb;
+    --red: #c0392b;
+    --green: #27ae60;
+    --shadow: 0 18px 45px rgba(82, 31, 38, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+  .script { font-family: 'Allura', cursive; font-weight: 400; }
+
+  img { max-width: 100%; display: block; }
+
+  .container { width: min(1120px, 92%); margin: 0 auto; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 245, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(109, 41, 50, 0.1);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .logo .script { color: var(--maroon); font-size: 1.8rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s, opacity 0.25s;
+  }
+
+  .btn:hover { transform: translateY(-1px); }
+
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .btn-maroon { background: var(--maroon); color: var(--white); box-shadow: 0 8px 20px rgba(109, 41, 50, 0.25); }
+  .btn-maroon:hover { background: var(--maroon-dark); }
+
+  .btn-outline { background: transparent; color: var(--maroon); border: 1.5px solid var(--maroon); }
+  .btn-outline:hover { background: var(--maroon); color: var(--white); }
+
+  .btn-danger { background: transparent; color: var(--red); border: 1.5px solid var(--red); }
+  .btn-danger:hover { background: var(--red); color: var(--white); }
+
+  .btn-sm { padding: 8px 18px; font-size: 0.72rem; }
+
+  .btn-success { background: var(--green); color: #fff; }
+
+  /* ---------- Login ---------- */
+  #login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+  }
+
+  .login-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 48px 40px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .login-card h2 {
+    font-size: 2rem;
+    color: var(--maroon-dark);
+    margin-bottom: 8px;
+  }
+
+  .login-card .subtitle {
+    color: #8a7c76;
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+  }
+
+  .field {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    color: var(--maroon-dark);
+    margin-bottom: 6px;
+  }
+
+  .field input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid rgba(109, 41, 50, 0.15);
+    border-radius: 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.25s;
+  }
+
+  .field input:focus { border-color: var(--maroon); }
+
+  .login-card .btn { width: 100%; justify-content: center; margin-top: 8px; padding: 15px; font-size: 0.85rem; }
+
+  .notice {
+    margin-top: 20px;
+    font-size: 0.82rem;
+    color: #c0392b;
+    padding: 14px;
+    background: #fdecea;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  .notice code {
+    background: rgba(0,0,0,0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+  }
+
+  /* ---------- Dashboard ---------- */
+  #dashboard { display: none; padding: 36px 0 60px; }
+
+  .dash-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .dash-head h2 { font-size: 2rem; color: var(--maroon-dark); }
+
+  .dash-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* ---------- Product list ---------- */
+  .prod-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .prod-row {
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(82, 31, 38, 0.06);
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .prod-row:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+  .prod-thumb { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; }
+
+  .prod-info h3 { font-size: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--maroon-dark); }
+
+  .prod-info .meta { font-size: 0.82rem; color: #8a7c76; margin-top: 2px; }
+
+  .prod-info .meta span { margin-right: 14px; }
+
+  .prod-btns { display: flex; gap: 8px; }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(36, 29, 27, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(82, 31, 38, 0.25);
+    padding: 40px 36px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal h2 { font-size: 1.8rem; color: var(--maroon-dark); margin-bottom: 24px; }
+
+  .modal .field textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid rgba(109, 41, 50, 0.15);
+    border-radius: 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--cream);
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.25s;
+  }
+
+  .modal .field textarea:focus { border-color: var(--maroon); }
+
+  .modal .field .hint { font-size: 0.74rem; color: #a2938c; margin-top: 4px; }
+
+  .modal .file-upload {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .modal .file-upload input[type="file"] { display: none; }
+
+  .modal .file-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid rgba(109, 41, 50, 0.1);
+  }
+
+  .modal-btns { display: flex; gap: 12px; justify-content: flex-end; margin-top: 28px; }
+
+  .toast {
+    position: fixed;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 600;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .toast.show { opacity: 1; }
+
+  .empty-state { text-align: center; padding: 50px 0; color: #a2938c; font-size: 1.1rem; }
+
+  @media (max-width: 600px) {
+    .prod-row { grid-template-columns: 48px 1fr auto; gap: 10px; padding: 14px 16px; }
+    .prod-thumb { width: 48px; height: 48px; }
+    .modal { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html">Mi'ad <span class="script">Scent</span> — Dashboard</a>
+    <a class="btn btn-outline btn-sm" href="index.html">← Back to Store</a>
+  </div>
+</header>
+
+<!-- ===== Login Screen ===== -->
+<section id="login-screen">
+  <div class="login-card">
+    <h2>Owner Dashboard</h2>
+    <p class="subtitle">Sign in to manage your product catalogue.</p>
+
+    <div id="login-form">
+      <div class="field">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" placeholder="you@example.com" autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="auth-password">Password</label>
+        <input id="auth-password" type="password" placeholder="••••••••" autocomplete="current-password" />
+      </div>
+      <button class="btn btn-maroon" id="btn-signin">Sign In</button>
+    </div>
+
+    <div id="setup-notice" style="display:none;" class="notice">
+      <strong>Firebase not configured yet.</strong><br>
+      Edit <code>js/firebase-config.js</code> with your Firebase project credentials
+      (see README.md for a step-by-step guide).
+    </div>
+
+    <p id="auth-msg" style="color: var(--red); margin-top: 16px; font-size: 0.85rem; display: none;"></p>
+  </div>
+</section>
+
+<!-- ===== Dashboard ===== -->
+<section id="dashboard">
+  <div class="container">
+    <div class="dash-head">
+      <h2>Products</h2>
+      <div class="dash-actions">
+        <button class="btn btn-outline btn-sm" id="btn-seed">↻ Seed Defaults</button>
+        <button class="btn btn-maroon" id="btn-add">+ Add Product</button>
+        <button class="btn btn-outline btn-sm" id="btn-logout">Sign Out</button>
+      </div>
+    </div>
+    <div id="prod-list" class="prod-list"></div>
+    <p id="empty-state" class="empty-state" style="display:none;">No products yet. Tap <strong>"+ Add Product"</strong> to add your first scent.</p>
+  </div>
+</section>
+
+<!-- ===== Product Form Modal ===== -->
+<div id="modal-overlay" class="modal-overlay" style="display:none;">
+  <div class="modal" id="modal">
+    <h2 id="modal-title">Add Product</h2>
+
+    <div class="field">
+      <label for="f-name">Name *</label>
+      <input id="f-name" type="text" placeholder="e.g. Roseline" />
+    </div>
+
+    <div class="field">
+      <label for="f-badge">Badge</label>
+      <input id="f-badge" type="text" placeholder="e.g. 30ml, Perfume Oil, New" />
+      <p class="hint">Shown in the corner of the product card</p>
+    </div>
+
+    <div class="field">
+      <label for="f-size">Size</label>
+      <input id="f-size" type="text" placeholder="e.g. 30ml, 10ml (shown in order panel after name)" />
+    </div>
+
+    <div class="field">
+      <label for="f-type">Type</label>
+      <input id="f-type" type="text" placeholder="e.g. Perfume Oil, Body Spray" />
+    </div>
+
+    <div class="field">
+      <label for="f-mood">Mood</label>
+      <input id="f-mood" type="text" placeholder="e.g. Soft · Elegant · Romantic" />
+    </div>
+
+    <div class="field">
+      <label for="f-desc">Description</label>
+      <textarea id="f-desc" rows="3" placeholder="What makes this scent special?"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Image</label>
+      <div class="file-upload">
+        <img id="img-preview" class="file-preview" src="" alt="Preview" style="display:none;" />
+        <input type="file" id="f-image-file" accept="image/*" />
+        <button type="button" class="btn btn-outline btn-sm" id="btn-pick-image">Choose File</button>
+        <span id="file-name" style="font-size:0.82rem; color:#8a7c76;">No file chosen</span>
+      </div>
+      <p class="hint">Or paste a URL below</p>
+      <input id="f-image-url" type="text" placeholder="https://example.com/image.jpg or assets/my-scent.jpeg" />
+    </div>
+
+    <div class="field">
+      <label for="f-sort">Sort Order</label>
+      <input id="f-sort" type="number" placeholder="1, 2, 3… (lower = first)" min="1" />
+    </div>
+
+    <div class="modal-btns">
+      <button class="btn btn-outline btn-sm" id="btn-cancel">Cancel</button>
+      <button class="btn btn-maroon" id="btn-save">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/products.js"></script>
+
+<script>
+  var auth = null;
+
+  /* ---------- Toast ---------- */
+  function toast(text, duration) {
+    var t = document.getElementById('toast');
+    t.textContent = text;
+    t.classList.add('show');
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(function () { t.classList.remove('show'); }, duration || 3000);
+  }
+
+  /* ---------- Login ---------- */
+  var loginScreen = document.getElementById('login-screen');
+  var dashboard = document.getElementById('dashboard');
+  var authMsg = document.getElementById('auth-msg');
+  var setupNotice = document.getElementById('setup-notice');
+  var loginFormEl = document.getElementById('login-form');
+  var storeReady = false;
+
+  function initFirebase() {
+    ProductStore.init();
+    storeReady = ProductStore.isLive();
+    if (!storeReady) {
+      setupNotice.style.display = 'block';
+      loginFormEl.style.display = 'none';
+    } else {
+      setupNotice.style.display = 'none';
+      loginFormEl.style.display = '';
+      auth = firebase.auth();
+    }
+  }
+
+  initFirebase();
+
+  document.getElementById('btn-signin').addEventListener('click', function () {
+    if (!auth) return;
+    var email = document.getElementById('auth-email').value.trim();
+    var password = document.getElementById('auth-password').value.trim();
+    if (!email || !password) {
+      authMsg.textContent = 'Please enter both email and password.';
+      authMsg.style.display = '';
+      return;
+    }
+    authMsg.style.display = 'none';
+    auth.signInWithEmailAndPassword(email, password).then(function () {
+      loginScreen.style.display = 'none';
+      dashboard.style.display = 'block';
+      authMsg.style.display = 'none';
+      loadProducts();
+    }).catch(function (err) {
+      authMsg.textContent = err.message;
+      authMsg.style.display = '';
+    });
+  });
+
+  document.getElementById('btn-logout').addEventListener('click', function () {
+    if (auth) auth.signOut();
+    loginScreen.style.display = 'flex';
+    dashboard.style.display = 'none';
+  });
+
+  /* Auth state listener */
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      loginScreen.style.display = 'none';
+      dashboard.style.display = 'block';
+      loadProducts();
+    } else {
+      loginScreen.style.display = 'flex';
+      dashboard.style.display = 'none';
+    }
+  });
+
+  /* ---------- Product list ---------- */
+  var allProducts = [];
+
+  async function loadProducts() {
+    if (!storeReady) return;
+    allProducts = await ProductStore.getAll();
+    renderList();
+  }
+
+  function renderList() {
+    var list = document.getElementById('prod-list');
+    var emptyEl = document.getElementById('empty-state');
+    list.innerHTML = '';
+
+    if (!allProducts.length) {
+      emptyEl.style.display = '';
+      return;
+    }
+    emptyEl.style.display = 'none';
+
+    allProducts.forEach(function (p) {
+      var row = document.createElement('div');
+      row.className = 'prod-row';
+
+      var img = document.createElement('img');
+      img.className = 'prod-thumb';
+      img.src = p.image || '';
+      img.alt = p.name;
+      img.onerror = function () { img.src = ''; img.alt = 'No image'; };
+
+      var info = document.createElement('div');
+      info.className = 'prod-info';
+      var h3 = document.createElement('h3');
+      h3.textContent = p.name;
+      var meta = document.createElement('p');
+      meta.className = 'meta';
+      meta.innerHTML = [
+        p.badge ? '<span>🏷 ' + esc(p.badge) + '</span>' : '',
+        p.size ? '<span>📏 ' + esc(p.size) + '</span>' : '',
+        p.type ? '<span>🧴 ' + esc(p.type) + '</span>' : '',
+        '<span>#' + esc(String(p.sort || 0)) + '</span>'
+      ].filter(Boolean).join('');
+      info.appendChild(h3);
+      info.appendChild(meta);
+
+      var btns = document.createElement('div');
+      btns.className = 'prod-btns';
+      var editBtn = document.createElement('button');
+      editBtn.className = 'btn btn-outline btn-sm';
+      editBtn.textContent = 'Edit';
+      editBtn.onclick = function () { openEdit(p); };
+      var delBtn = document.createElement('button');
+      delBtn.className = 'btn btn-danger btn-sm';
+      delBtn.textContent = 'Delete';
+      delBtn.onclick = function () { deleteProduct(p); };
+      btns.appendChild(editBtn);
+      btns.appendChild(delBtn);
+
+      row.appendChild(img);
+      row.appendChild(info);
+      row.appendChild(btns);
+      list.appendChild(row);
+    });
+  }
+
+  function esc(s) {
+    var div = document.createElement('div');
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  async function deleteProduct(p) {
+    if (!confirm('Delete "' + p.name + '" permanently? This cannot be undone.')) return;
+    await ProductStore.remove(p.id);
+    toast('"' + p.name + '" deleted.');
+    await loadProducts();
+  }
+
+  /* ---------- Modal form ---------- */
+  var modalOverlay = document.getElementById('modal-overlay');
+  var editingId = null;
+  var imageFile = null;
+
+  function resetForm() {
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-badge').value = '';
+    document.getElementById('f-size').value = '';
+    document.getElementById('f-type').value = '';
+    document.getElementById('f-mood').value = '';
+    document.getElementById('f-desc').value = '';
+    document.getElementById('f-image-url').value = '';
+    document.getElementById('f-sort').value = '';
+    document.getElementById('f-image-file').value = '';
+    document.getElementById('file-name').textContent = 'No file chosen';
+    document.getElementById('img-preview').style.display = 'none';
+    document.getElementById('img-preview').src = '';
+    imageFile = null;
+    editingId = null;
+    document.getElementById('modal-title').textContent = 'Add Product';
+    document.getElementById('btn-save').textContent = 'Save Product';
+  }
+
+  function openAdd() {
+    resetForm();
+    modalOverlay.style.display = 'flex';
+  }
+
+  function openEdit(p) {
+    resetForm();
+    editingId = p.id;
+    document.getElementById('modal-title').textContent = 'Edit Product';
+    document.getElementById('btn-save').textContent = 'Update Product';
+    document.getElementById('f-name').value = p.name || '';
+    document.getElementById('f-badge').value = p.badge || '';
+    document.getElementById('f-size').value = p.size || '';
+    document.getElementById('f-type').value = p.type || '';
+    document.getElementById('f-mood').value = p.mood || '';
+    document.getElementById('f-desc').value = p.desc || '';
+    document.getElementById('f-image-url').value = p.image || '';
+    document.getElementById('f-sort').value = p.sort || '';
+    if (p.image && !p.image.startsWith('data:')) {
+      document.getElementById('img-preview').src = p.image;
+      document.getElementById('img-preview').style.display = '';
+    }
+    modalOverlay.style.display = 'flex';
+  }
+
+  document.getElementById('btn-add').addEventListener('click', openAdd);
+  document.getElementById('btn-cancel').addEventListener('click', function () {
+    modalOverlay.style.display = 'none';
+    resetForm();
+  });
+
+  document.getElementById('btn-pick-image').addEventListener('click', function () {
+    document.getElementById('f-image-file').click();
+  });
+
+  document.getElementById('f-image-file').addEventListener('change', function () {
+    var file = this.files[0];
+    if (!file) return;
+    imageFile = file;
+    document.getElementById('file-name').textContent = file.name + ' (' + (file.size / 1024).toFixed(0) + ' KB)';
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById('img-preview').src = e.target.result;
+      document.getElementById('img-preview').style.display = '';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('btn-save').addEventListener('click', async function () {
+    var btn = this;
+    var name = document.getElementById('f-name').value.trim();
+    if (!name) { toast('Product name is required.'); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+
+    try {
+      var imageSrc = document.getElementById('f-image-url').value.trim();
+
+      // Upload image file if selected (takes priority over URL input)
+      if (imageFile) {
+        toast('Uploading image…');
+        imageSrc = await ProductStore.uploadImage(imageFile);
+      }
+
+      if (!imageSrc && imageFile) { /* upload failed, keep empty */ }
+
+      var data = {
+        name: name,
+        badge: document.getElementById('f-badge').value.trim(),
+        size: document.getElementById('f-size').value.trim(),
+        type: document.getElementById('f-type').value.trim(),
+        mood: document.getElementById('f-mood').value.trim(),
+        desc: document.getElementById('f-desc').value.trim(),
+        image: imageSrc,
+        sort: parseInt(document.getElementById('f-sort').value, 10) || Date.now()
+      };
+
+      if (editingId) {
+        await ProductStore.update(editingId, data);
+        toast('"' + name + '" updated.');
+      } else {
+        await ProductStore.create(data);
+        toast('"' + name + '" added to catalogue.');
+      }
+
+      modalOverlay.style.display = 'none';
+      resetForm();
+      await loadProducts();
+    } catch (err) {
+      toast('Error: ' + err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = editingId ? 'Update Product' : 'Save Product';
+    }
+  });
+
+  /* ---------- Seed defaults ---------- */
+  document.getElementById('btn-seed').addEventListener('click', async function () {
+    if (!confirm('This will add the 5 default products from the site to your Firestore collection. Continue?')) return;
+    try {
+      await ProductStore.seedDefaults();
+      toast('Default products seeded!');
+      await loadProducts();
+    } catch (err) {
+      toast('Error: ' + err.message);
+    }
+  });
+</script>
+
+</body>
+</html>
