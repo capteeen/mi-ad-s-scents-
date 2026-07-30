@@ -138,9 +138,25 @@ var ProductStore = (function () {
     return ref.id;
   }
 
+  /* Persist fallback products before the first edit/delete operation. */
+  async function persistDefaultsIfEmpty() {
+    var collection = _db.collection(COLLECTION);
+    var snap = await collection.orderBy("sort").get();
+    if (!snap.empty) return;
+
+    var batch = _db.batch();
+    DEFAULT_PRODUCTS.forEach(function (p) {
+      var data = Object.assign({}, p);
+      delete data.id;
+      batch.set(collection.doc(p.id), data);
+    });
+    await batch.commit();
+  }
+
   /* Update an existing product by id. */
   async function update(id, data) {
     if (!isLive()) throw new Error("Firebase is not configured.");
+    await persistDefaultsIfEmpty();
     delete data.id;
     await _db.collection(COLLECTION).doc(id).update(data);
   }
@@ -148,6 +164,7 @@ var ProductStore = (function () {
   /* Delete a product by id. */
   async function remove(id) {
     if (!isLive()) throw new Error("Firebase is not configured.");
+    await persistDefaultsIfEmpty();
     await _db.collection(COLLECTION).doc(id).delete();
   }
 
@@ -167,7 +184,7 @@ var ProductStore = (function () {
     DEFAULT_PRODUCTS.forEach(function (p) {
       var data = Object.assign({}, p);
       delete data.id;
-      var ref = _db.collection(COLLECTION).doc();
+      var ref = _db.collection(COLLECTION).doc(p.id);
       batch.set(ref, data);
     });
     await batch.commit();
